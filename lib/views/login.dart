@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:road_damage_detection_app/views/signUp.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -25,107 +26,112 @@ class _LoginPageState extends State<LoginPage> {
             child: Container(
               height: 320,
               margin: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Card(
-                    shape:  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0), // Köşe yarıçapı
+              child: Card(
+                shape:  RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0), // Köşe yarıçapı
+                ),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text('Login',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w700
+                        ) ),
                     ),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
+                    Center(
+                        child: Container(
+                          width:350,
+                          margin: EdgeInsets.symmetric(horizontal: 20.0),
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow:  [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                spreadRadius: 3,
+                                blurRadius: 1,
+                                offset: Offset(0, 0), // Gölgenin konumu
+                              ),
+                            ]
+                          ),
+                          child: TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              hintText: 'E-mail',
+                              border: InputBorder.none
+                            ),
+                          ),
+                        ),
+                      ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                        child: Container(
+                          width:350,
+                          margin: EdgeInsets.symmetric(horizontal: 20.0),
+                          padding: EdgeInsets.symmetric(horizontal: 20.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow:  [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  spreadRadius: 3,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 0), // Gölgenin konumu
+                                ),
+                              ]
+                          ),
+                          child: TextFormField(
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                                hintText: 'Password',
+                                border: InputBorder.none
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 15, 0, 8),
+                      child: ElevatedButton(onPressed: (){},
                           child: Text('Login',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700
-                            ) ),
-                        ),
-                        Center(
-                            child: Container(
-                              width:350,
-                              margin: EdgeInsets.symmetric(horizontal: 20.0),
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                boxShadow:  [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.2),
-                                    spreadRadius: 3,
-                                    blurRadius: 1,
-                                    offset: Offset(0, 0), // Gölgenin konumu
-                                  ),
-                                ]
-                              ),
-                              child: TextFormField(
-                                controller: emailController,
-                                decoration: InputDecoration(
-                                  hintText: 'E-mail',
-                                  border: InputBorder.none
-                                ),
-                              ),
-                            ),
-                          ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-                            child: Container(
-                              width:350,
-                              margin: EdgeInsets.symmetric(horizontal: 20.0),
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
-                                  boxShadow:  [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      spreadRadius: 3,
-                                      blurRadius: 1,
-                                      offset: Offset(0, 0), // Gölgenin konumu
-                                    ),
-                                  ]
-                              ),
-                              child: TextFormField(
-                                controller: emailController,
-                                decoration: InputDecoration(
-                                    hintText: 'Password',
-                                    border: InputBorder.none
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 15, 0, 8),
-                          child: ElevatedButton(onPressed: (){},
-                              child: Text('Login',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23,
-                                fontWeight: FontWeight.w700
-                              ),),
-                              style: ButtonStyle(
-                              minimumSize: WidgetStatePropertyAll(Size(330, 40)),
-                              backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent),
-                            )),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text("Don't have an account?"),
-                            TextButton(onPressed: (){},
-                                child: Text('Sign Up') )
-                          ],
-                        )
-
-                      ],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700
+                          ),),
+                          style: ButtonStyle(
+                          minimumSize: WidgetStatePropertyAll(Size(330, 40)),
+                          backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent),
+                        )),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text("Don't have an account?"),
+                          TextButton(onPressed: (){
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignUp()));
+
+                          },
+                              child: Text('Sign Up',
+                              style: TextStyle(
+                                  color:Colors.deepOrange),
+                              ))
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
               ),
             ),
           ),
