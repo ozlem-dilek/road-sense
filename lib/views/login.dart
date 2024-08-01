@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+                          padding: const EdgeInsets.fromLTRB(0, 15, 0, 8),
                           child: ElevatedButton(onPressed: (){},
                               child: Text('Login',
                               style: TextStyle(
@@ -113,6 +113,14 @@ class _LoginPageState extends State<LoginPage> {
                               backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent),
                             )),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("Don't have an account?"),
+                            TextButton(onPressed: (){},
+                                child: Text('Sign Up') )
+                          ],
+                        )
 
                       ],
                     ),
