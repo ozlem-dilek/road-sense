@@ -18,6 +18,9 @@ class _SignUpState extends State<SignUp> {
 
   final List<String> locations = ['Konya, Türkiye', 'İstanbul, Türkiye', 'Türkiye'];
 
+  bool isDataAgreementAccepted = false;
+  bool isMarketingEmailsAccepted = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -252,12 +255,72 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                           Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                  value: isDataAgreementAccepted,
+                                  onChanged: (newValue) {
+                                    setState(() {
+                                      isDataAgreementAccepted = newValue ?? false;
+                                    });
+                                  },
+                                ),
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isDataAgreementAccepted = !isDataAgreementAccepted;
+                                      });
+                                    },
+                                    child: Text(
+                                      'Veri depolama sözleşmesini kabul ediyorum.',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                  value: isMarketingEmailsAccepted,
+                                  onChanged: (newValue) {
+                                    setState(() {
+                                      isMarketingEmailsAccepted = newValue ?? false;
+                                    });
+                                  },
+                                ),
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isMarketingEmailsAccepted = !isMarketingEmailsAccepted;
+                                      });
+                                    },
+                                    child: Text(
+                                      'Tanıtım ve reklam maillerini almak istiyorum.',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
                             padding: const EdgeInsets.fromLTRB(0, 5, 20, 0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: isDataAgreementAccepted ? () {} : null,
                                   child: Text(
                                     "Kaydol",
                                     style: TextStyle(
@@ -266,7 +329,9 @@ class _SignUpState extends State<SignUp> {
                                         fontWeight: FontWeight.w700),
                                   ),
                                   style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(Colors.orangeAccent),
+                                    backgroundColor:isDataAgreementAccepted
+                                        ? WidgetStatePropertyAll(Colors.orangeAccent)
+                                        : WidgetStatePropertyAll(Colors.grey)
                                   ),
                                 ),
                               ],
