@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:road_damage_detection_app/views/login.dart';
+import 'package:road_damage_detection_app/views/welcome.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -16,7 +18,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController birthController = TextEditingController();
   String? selectedLocation;
 
-  final List<String> locations = ['Konya, Türkiye', 'İstanbul, Türkiye', 'Türkiye'];
+  final List<String> locations = ['Konya, Türkiye', 'İstanbul, Türkiye', 'Ankara, Türkiye'];
 
   bool isDataAgreementAccepted = false;
   bool isMarketingEmailsAccepted = false;
@@ -320,7 +322,14 @@ class _SignUpState extends State<SignUp> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 ElevatedButton(
-                                  onPressed: isDataAgreementAccepted ? () {} : null,
+                                  onPressed: isDataAgreementAccepted ? () {
+
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => LoginPage()));
+
+
+                                  } : null,
                                   child: Text(
                                     "Kaydol",
                                     style: TextStyle(

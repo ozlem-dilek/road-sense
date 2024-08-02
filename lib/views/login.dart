@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:road_damage_detection_app/views/homePage.dart';
 import 'package:road_damage_detection_app/views/signUp.dart';
 
 
@@ -35,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: Text('Login',
+                      child: Text('Giriş Yap',
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w700
@@ -61,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: TextFormField(
                             controller: emailController,
                             decoration: InputDecoration(
-                              hintText: 'E-mail',
+                              hintText: 'E-posta',
                               border: InputBorder.none
                             ),
                           ),
@@ -89,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: TextFormField(
                             controller: passwordController,
                             decoration: InputDecoration(
-                                hintText: 'Password',
+                                hintText: 'Şifre',
                                 border: InputBorder.none
                             ),
                           ),
@@ -98,8 +99,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 15, 0, 8),
-                      child: ElevatedButton(onPressed: (){},
-                          child: Text('Login',
+                      child: ElevatedButton(onPressed: (){
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => HomePage()));
+
+                      },
+                          child: Text('Giriş Yap',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 23,
@@ -115,14 +122,14 @@ class _LoginPageState extends State<LoginPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text("Don't have an account?"),
+                          Text("Bir hesabın yok mu?"),
                           TextButton(onPressed: (){
                               Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => SignUp()));
 
                           },
-                              child: Text('Sign Up',
+                              child: Text('Kaydol',
                               style: TextStyle(
                                   color:Colors.deepOrange),
                               ))
