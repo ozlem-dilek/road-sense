@@ -328,11 +328,7 @@ class _SearchPageState extends State<SearchPage> {
                       MaterialPageRoute(builder: (context) => HomePage()));
                 },
                     icon: Icon(Icons.home_filled, size: 35)),
-                IconButton(onPressed: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SearchPage()));
-                },
+                IconButton(onPressed: (){},
                     icon: Icon(Icons.search, size: 37)),
                 SizedBox(width: 20),
                 IconButton(onPressed: (){

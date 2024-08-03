@@ -293,12 +293,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(onPressed: (){
-
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
+                IconButton(onPressed: (){},
                     icon: Icon(Icons.home_filled, size: 35)),
                 IconButton(onPressed: (){
                   Navigator.push(
