@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:road_damage_detection_app/views/searchPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -304,7 +305,13 @@ class _HomePageState extends State<HomePage> {
                 },
                     icon: Icon(Icons.search, size: 37)),
                 SizedBox(width: 20),
-                IconButton(onPressed: (){},
+                IconButton(onPressed: (){
+
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NotificationPage()));
+
+                },
                     icon: Icon(Icons.mode_comment, size: 33)),
                 IconButton(onPressed: (){},
                     icon: Icon(Icons.account_circle, size: 35))
