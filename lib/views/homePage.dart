@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:road_damage_detection_app/views/searchPage.dart';
 
+import 'notificationPage.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
