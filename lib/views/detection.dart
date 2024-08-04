@@ -15,18 +15,33 @@ class _DetectionPageState extends State<DetectionPage> {
   final ImagePicker _picker = ImagePicker();
 
   Future<void> _takePicture() async {
-    print('Fotoğraf çekme işlemi başlatıldı'); // Hata ayıklama mesajı
+    print('Fotoğraf çekme işlemi başlatıldı'); // hata varsa diye ;)
     final XFile? image = await _picker.pickImage(source: ImageSource.camera);
 
     if (image != null) {
       setState(() {
         _image = File(image.path);
       });
-      print('Fotoğraf çekildi ve setState çağrıldı'); // Hata ayıklama mesajı
+      print('Fotoğraf çekildi, setState çağrıldı');
     } else {
-      print('Fotoğraf çekme iptal edildi veya başarısız oldu'); // Hata ayıklama mesajı
+      print('Fotoğraf çekme iptal edildi/başarısız oldu');
     }
   }
+
+  Future<void> _pickPicture() async {
+    print('Fotoğraf seçme işlemi başlatıldı'); // hata varsa diye ;)
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      setState(() {
+        _image = File(image.path);
+      });
+      print('Fotoğraf seçildi, setState çağrıldı');
+    } else {
+      print('Fotoğraf seçme iptal edildi/başarısız oldu');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +68,7 @@ class _DetectionPageState extends State<DetectionPage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.75,
                     child: _image == null
-                    ? Center(child: Text('Fotoğraf Çek'))
+                    ? Center(child: Text("Fotoğraf Çek veya Galeri'den seç"))
                     : Image.file(_image!),
 
                   )
@@ -74,13 +89,13 @@ class _DetectionPageState extends State<DetectionPage> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: _pickPicture,
                     child: Text(
                       'Galeriden Seç',
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.grey),
+                      backgroundColor: MaterialStateProperty.all(Colors.orangeAccent),
                     ),
                   ),
                 ],
