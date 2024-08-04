@@ -5,7 +5,7 @@ import 'dart:io';
 import 'dart:convert'; // bu kütüphane json için
 import 'package:http/http.dart' as http;
 import 'package:road_damage_detection_app/views/video_detection.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'homePage.dart';
 import 'live_detection.dart';
 
@@ -74,12 +74,14 @@ class _DetectionPageState extends State<DetectionPage> {
           leading: IconButton(
             onPressed: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()));            },
-
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
             icon: Icon(Icons.keyboard_arrow_left),
           ),
-          title: Text("Yol Hasarı Tespiti"),
+          title: Text(
+            "Yol Hasarı Tespiti",
+            style: GoogleFonts.lato(fontWeight: FontWeight.w700),
+          ),
           centerTitle: true,
         ),
         backgroundColor: Color.fromRGBO(246, 246, 246, 1),
@@ -94,29 +96,33 @@ class _DetectionPageState extends State<DetectionPage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.75,
                     child: _image == null
-                        ? Center(child: Text("Fotoğraf Çek veya Galeri'den seç"))
+                        ? Center(
+                            child: Text(
+                            "Fotoğraf Çek veya Galeri'den seç",
+                            style: GoogleFonts.lato(),
+                          ))
                         : Stack(
-                      children: [
-                        Image.file(_image!),
-                        if (_detections != null)
-                          ..._detections!.map((detection) {
-                            return Positioned(
-                              left: detection['x1'],
-                              top: detection['y1'],
-                              width: detection['x2'] - detection['x1'],
-                              height: detection['y2'] - detection['y1'],
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.red,
-                                    width: 2,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                      ],
-                    ),
+                            children: [
+                              Image.file(_image!),
+                              if (_detections != null)
+                                ..._detections!.map((detection) {
+                                  return Positioned(
+                                    left: detection['x1'],
+                                    top: detection['y1'],
+                                    width: detection['x2'] - detection['x1'],
+                                    height: detection['y2'] - detection['y1'],
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.red,
+                                          width: 2,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                            ],
+                          ),
                   ),
                 ],
               ),
@@ -127,20 +133,24 @@ class _DetectionPageState extends State<DetectionPage> {
                     onPressed: _takePicture,
                     child: Text(
                       'Fotoğraf Çek',
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.lato(
+                          color: Colors.white, fontWeight: FontWeight.w700),
                     ),
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent),
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.orangeAccent),
                     ),
                   ),
                   ElevatedButton(
                     onPressed: _pickPicture,
                     child: Text(
                       'Galeriden Seç',
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.lato(
+                          color: Colors.white, fontWeight: FontWeight.w700),
                     ),
                     style: ButtonStyle(
-                      backgroundColor:WidgetStatePropertyAll(Colors.orangeAccent),
+                      backgroundColor:
+                          WidgetStatePropertyAll(Colors.orangeAccent),
                     ),
                   ),
                 ],
@@ -154,17 +164,16 @@ class _DetectionPageState extends State<DetectionPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                onPressed: () {
-
-                },
+                onPressed: () {},
                 icon: Icon(Icons.camera_alt),
                 color: Colors.orangeAccent,
               ),
               IconButton(
                 onPressed: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => VideoDetectionPage()));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VideoDetectionPage()));
                 },
                 icon: Icon(Icons.video_collection),
               ),
@@ -172,11 +181,11 @@ class _DetectionPageState extends State<DetectionPage> {
                 onPressed: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LiveDetectionPage()));
+                      MaterialPageRoute(
+                          builder: (context) => LiveDetectionPage()));
                 },
                 icon: Icon(Icons.live_tv_outlined),
                 color: Colors.orangeAccent,
-
               ),
             ],
           ),

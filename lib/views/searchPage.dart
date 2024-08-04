@@ -39,13 +39,12 @@ class _SearchPageState extends State<SearchPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text('Arama',
-                    style: GoogleFonts.lato(
-                      fontSize: 35,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.orange
-                    ),
-
+                    Text(
+                      'Arama',
+                      style: GoogleFonts.lato(
+                          fontSize: 35,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.orange),
                     )
                   ],
                 ),
@@ -54,33 +53,33 @@ class _SearchPageState extends State<SearchPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width:370,
+                    width: 370,
                     height: 60,
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
-                        boxShadow:  [
+                        boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.2),
                             spreadRadius: 3,
                             blurRadius: 1,
                             offset: Offset(0, 0), // Gölgenin konumu
                           ),
-                        ]
-                    ),
+                        ]),
                     child: Center(
                       child: TextFormField(
                         decoration: InputDecoration(
                             hintText: '  Örn: Çukur',
                             hintStyle: GoogleFonts.lato(fontSize: 20),
                             border: InputBorder.none,
-                            prefixIcon: Icon(Icons.search_outlined,
+                            prefixIcon: Icon(
+                              Icons.search_outlined,
                               color: Colors.grey,
                               size: 40,
-                              weight: 10,)
-                        ),
+                              weight: 10,
+                            )),
                       ),
                     ),
                   ),
@@ -90,12 +89,13 @@ class _SearchPageState extends State<SearchPage> {
                 padding: const EdgeInsets.all(25.0),
                 child: Row(
                   children: [
-                    Text('Filtrele',
-                    style: GoogleFonts.lato(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.orange
-                    ),)
+                    Text(
+                      'Filtrele',
+                      style: GoogleFonts.lato(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.orange),
+                    )
                   ],
                 ),
               ),
@@ -104,231 +104,231 @@ class _SearchPageState extends State<SearchPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 5),
                     child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-
-                        width: 120,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 120,
                           height: 120,
-                        decoration: BoxDecoration(
-                            color: cukur
-                                ? Colors.orangeAccent
-                                : Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow:  [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 3,
-                                blurRadius: 1,
-                                offset: Offset(0, 0), // Gölgenin konumu
-                              ),
-                            ]
+                          decoration: BoxDecoration(
+                              color: cukur ? Colors.orangeAccent : Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  spreadRadius: 3,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 0), // Gölgenin konumu
+                                ),
+                              ]),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                  onPressed: () {
+                                    void toggleColor() {
+                                      setState(() {
+                                        cukur = !cukur;
+                                      });
+                                    }
+                                  },
+                                  icon: Icon(
+                                    Icons.circle_outlined,
+                                    size: 50,
+                                    color: Colors.grey,
+                                  )),
+                              Text(
+                                'Çukur',
+                                style: GoogleFonts.lato(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey),
+                              )
+                            ],
+                          ),
                         ),
-                        child:Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(onPressed: (){
-                              void toggleColor() {
-                                setState(() {
-                                  cukur = !cukur;
-                                });
-                              }
-                            },
-                                icon: Icon(Icons.circle_outlined,
-                              size: 50,
-                                color: Colors.grey,)),
-                            Text('Çukur',
-                            style: GoogleFonts.lato(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                                color: Colors.grey
-                            ),)
-                          ],
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  spreadRadius: 3,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 0), // Gölgenin konumu
+                                ),
+                              ]),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.line_axis,
+                                    color: Colors.grey,
+                                    size: 50,
+                                  )),
+                              Text(
+                                'Çatlak',
+                                style: GoogleFonts.lato(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow:  [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 3,
-                                blurRadius: 1,
-                                offset: Offset(0, 0), // Gölgenin konumu
-                              ),
-                            ]
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  spreadRadius: 3,
+                                  blurRadius: 1,
+                                  offset: Offset(0, 0), // Gölgenin konumu
+                                ),
+                              ]),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.camera_alt,
+                                      size: 50, color: Colors.grey)),
+                              Text(
+                                'Tespit',
+                                style: GoogleFonts.lato(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey),
+                              )
+                            ],
+                          ),
                         ),
-                        child:Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(onPressed: (){},
-                                icon: Icon(Icons.line_axis,
-                                  color: Colors.grey,
-                                size: 50,)),
-                            Text('Çatlak',
-                              style: GoogleFonts.lato(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey
-                              ),)
-                          ],
-                        ),
-                      ),
-                      Container(
-
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow:  [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 3,
-                                blurRadius: 1,
-                                offset: Offset(0, 0), // Gölgenin konumu
-                              ),
-                            ]
-                        ),
-                        child:Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(onPressed: (){},
-                                icon: Icon(Icons.camera_alt,
-                              size: 50,
-                                    color: Colors.grey)),
-                            Text('Tespit',
-                              style: GoogleFonts.lato(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.grey
-                              ),)
-                          ],
-                        ),
-                      ),
-                    ],
-                                    ),
+                      ],
+                    ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-
                           width: 120,
                           height: 120,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow:  [
+                              boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.2),
                                   spreadRadius: 3,
                                   blurRadius: 1,
                                   offset: Offset(0, 0), // Gölgenin konumu
                                 ),
-                              ]
-                          ),
-                          child:Column(
+                              ]),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              IconButton(onPressed: (){},
-                                icon: Icon(Icons.map_outlined,
-                                  color: Colors.grey,
-                                size: 50,)),
-                              Text('Harita',
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.map_outlined,
+                                    color: Colors.grey,
+                                    size: 50,
+                                  )),
+                              Text(
+                                'Harita',
                                 style: GoogleFonts.lato(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w700,
-                                    color: Colors.grey
-                                ),)
+                                    color: Colors.grey),
+                              )
                             ],
                           ),
                         ),
                         Container(
-
                           width: 120,
                           height: 120,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow:  [
+                              boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.2),
                                   spreadRadius: 3,
                                   blurRadius: 1,
                                   offset: Offset(0, 0), // Gölgenin konumu
                                 ),
-                              ]
-                          ),
-                          child:Column(
+                              ]),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              IconButton(onPressed: (){},
+                              IconButton(
+                                  onPressed: () {},
                                   icon: Icon(Icons.notifications,
-                                  size: 50,
-                                      color: Colors.grey)),
-                              Text('Bildirim',
+                                      size: 50, color: Colors.grey)),
+                              Text(
+                                'Bildirim',
                                 style: GoogleFonts.lato(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w700,
-                                    color: Colors.grey
-                                ),)
+                                    color: Colors.grey),
+                              )
                             ],
                           ),
                         ),
                         Container(
-
                           width: 120,
                           height: 120,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow:  [
+                              boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.2),
                                   spreadRadius: 3,
                                   blurRadius: 1,
                                   offset: Offset(0, 0), // Gölgenin konumu
                                 ),
-                              ]
-                          ),
-                          child:Column(
+                              ]),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              IconButton(onPressed: (){},
-                                icon: Icon(Icons.keyboard_arrow_right,
-                                  color: Colors.grey,
-                                size: 50,)),
-                              Text('Diğer',
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_right,
+                                    color: Colors.grey,
+                                    size: 50,
+                                  )),
+                              Text(
+                                'Diğer',
                                 style: GoogleFonts.lato(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w700,
-                                    color: Colors.grey
-                                ),)
+                                    color: Colors.grey),
+                              )
                             ],
                           ),
                         ),
-
                       ],
                     ),
                   ),
-                  
-
                 ],
               )
-
             ],
           ),
         ),
@@ -339,42 +339,44 @@ class _SearchPageState extends State<SearchPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(onPressed: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
+                    },
                     icon: Icon(Icons.home_filled, size: 35)),
-                IconButton(onPressed: (){},
-                    icon: Icon(Icons.search, size: 37)),
+                IconButton(
+                    onPressed: () {}, icon: Icon(Icons.search, size: 37)),
                 SizedBox(width: 20),
-                IconButton(onPressed: (){
-
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NotificationPage()));
-
-                },
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NotificationPage()));
+                    },
                     icon: Icon(Icons.mode_comment, size: 33)),
-                IconButton(onPressed: (){},
+                IconButton(
+                    onPressed: () {},
                     icon: Icon(Icons.account_circle, size: 35))
               ],
             ),
           ),
         ),
         floatingActionButton: Container(
-          width: 65, height: 65,
+          width: 65,
+          height: 65,
           child: FloatingActionButton(
-            onPressed: (){
-              Navigator.push(
-                  context,
+            onPressed: () {
+              Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DetectionPage()));
             },
             child: Icon(Icons.add, color: Colors.white, size: 35),
             backgroundColor: Colors.orangeAccent,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50.0),
-            ),),
+            ),
+          ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),

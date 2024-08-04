@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:road_damage_detection_app/views/video_detection.dart';
 import 'detection.dart';
 import 'homePage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LiveDetectionPage extends StatefulWidget {
   @override
@@ -37,7 +38,7 @@ class _LiveDetectionPageState extends State<LiveDetectionPage> {
           _isCameraInitialized = true;
         });
       } catch (e) {
-        print("Camera initialization error: $e");
+        print("Kamera başlatma hatası: $e");
       }
     }
   }
@@ -74,7 +75,7 @@ class _LiveDetectionPageState extends State<LiveDetectionPage> {
         // Send video to Python service
         final request = http.MultipartRequest(
           'POST',
-          Uri.parse('http://<YOUR_SERVER_IP>:5000/detect'),
+          Uri.parse('http://<xxx>:5000/detect'),
         );
         request.files.add(await http.MultipartFile.fromPath('video', videoPath));
         final response = await request.send();
@@ -125,7 +126,10 @@ class _LiveDetectionPageState extends State<LiveDetectionPage> {
                   MaterialPageRoute(builder: (context) => HomePage()));            },
             icon: Icon(Icons.keyboard_arrow_left),
           ),
-          title: Text("Canlı Tespit"),
+          title: Text("Canlı Tespit",
+          style: GoogleFonts.lato(
+            fontWeight: FontWeight.w700
+          ),),
           centerTitle: true,
         ),
         backgroundColor: Color.fromRGBO(246, 246, 246, 1),
@@ -145,7 +149,7 @@ class _LiveDetectionPageState extends State<LiveDetectionPage> {
                   ? CircularProgressIndicator()
                   : Text(
                 'Başlat',
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.lato(color: Colors.white),
               ),
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent),
@@ -155,7 +159,7 @@ class _LiveDetectionPageState extends State<LiveDetectionPage> {
               onPressed: !_isProcessing ? null : _stopRealTimeDetection,
               child: Text(
                 'Durdur',
-                style: TextStyle(color: Colors.white),
+                style:  GoogleFonts.lato(color: Colors.white),
               ),
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Colors.redAccent),

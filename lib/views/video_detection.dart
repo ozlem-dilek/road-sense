@@ -4,6 +4,7 @@ import 'package:road_damage_detection_app/views/homePage.dart';
 import 'dart:io';
 import 'detection.dart';
 import 'live_detection.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class VideoDetectionPage extends StatefulWidget {
   @override
@@ -20,7 +21,6 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
       setState(() {
         _video = File(video.path);
       });
-      // Burada video üzerinde işlem yapılabilir (örneğin, video tespiti için Python servis çağrısı)
     }
   }
 
@@ -30,7 +30,6 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
       setState(() {
         _video = File(video.path);
       });
-      // Burada video üzerinde işlem yapılabilir (örneğin, video tespiti için Python servis çağrısı)
     }
   }
 
@@ -49,7 +48,10 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
             },
             icon: Icon(Icons.keyboard_arrow_left),
           ),
-          title: Text("Yol Hasarı Tespiti"),
+          title: Text("Yol Hasarı Tespiti", style: GoogleFonts.lato(
+            fontWeight: FontWeight.w700
+
+          ),),
           centerTitle: true,
         ),
         backgroundColor: Color.fromRGBO(246, 246, 246, 1),
@@ -64,12 +66,11 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.75,
                     child: _video == null
-                        ? Center(child: Text("Video Çek veya Galeri'den seç"))
+                        ? Center(child: Text("Video Çek veya Galeri'den seç",
+                    style: GoogleFonts.lato(),))
                         : Stack(
                       children: [
-                        // Video widget'ı kullanmanız gerekebilir (örneğin, video oynatıcı)
-                        // Video playback widget is currently placeholder
-                        Center(child: Text("Video Playback Widget Here")),
+                        Center(child: Text("Video Playback Widget'i burada")),
                       ],
                     ),
                   ),
@@ -82,7 +83,8 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
                     onPressed: _recordVideo,
                     child: Text(
                       'Video Çek',
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.lato(color: Colors.white,
+                      fontWeight: FontWeight.w700),
                     ),
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent),
@@ -92,7 +94,8 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
                     onPressed: _pickVideo,
                     child: Text(
                       'Galeriden Seç',
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.lato(color: Colors.white,
+                      fontWeight: FontWeight.w700),
                     ),
                     style: ButtonStyle(
                       backgroundColor:WidgetStatePropertyAll(Colors.orangeAccent),
