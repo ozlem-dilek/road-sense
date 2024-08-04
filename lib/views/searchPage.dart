@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'detection.dart';
 import 'homePage.dart';
 import 'notificationPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -39,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text('Arama',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       fontSize: 35,
                       fontWeight: FontWeight.w900
                     ),
@@ -72,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
                       child: TextFormField(
                         decoration: InputDecoration(
                             hintText: '  Örn: Çukur',
-                            hintStyle: TextStyle(fontSize: 20),
+                            hintStyle: GoogleFonts.lato(fontSize: 20),
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.search_outlined,
                               size: 40,
@@ -88,7 +89,7 @@ class _SearchPageState extends State<SearchPage> {
                 child: Row(
                   children: [
                     Text('Filtrele',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       fontSize: 25,
                       fontWeight: FontWeight.w700
                     ),)
@@ -134,9 +135,9 @@ class _SearchPageState extends State<SearchPage> {
                                 icon: Icon(Icons.circle_outlined,
                               size: 50,)),
                             Text('Çukur',
-                            style: TextStyle(
+                            style: GoogleFonts.lato(
                               fontSize: 17,
-                              fontWeight: FontWeight.w500
+                              fontWeight: FontWeight.w700
                             ),)
                           ],
                         ),
@@ -164,9 +165,9 @@ class _SearchPageState extends State<SearchPage> {
                                 icon: Icon(Icons.line_axis,
                                 size: 50,)),
                             Text('Çatlak',
-                              style: TextStyle(
+                              style: GoogleFonts.lato(
                                   fontSize: 17,
-                                  fontWeight: FontWeight.w500
+                                  fontWeight: FontWeight.w700
                               ),)
                           ],
                         ),
@@ -195,9 +196,9 @@ class _SearchPageState extends State<SearchPage> {
                                 icon: Icon(Icons.camera_alt,
                               size: 50,)),
                             Text('Tespit',
-                              style: TextStyle(
+                              style: GoogleFonts.lato(
                                   fontSize: 17,
-                                  fontWeight: FontWeight.w500
+                                  fontWeight: FontWeight.w700
                               ),)
                           ],
                         ),
@@ -235,9 +236,9 @@ class _SearchPageState extends State<SearchPage> {
                                 icon: Icon(Icons.map_outlined,
                                 size: 50,)),
                               Text('Harita',
-                                style: TextStyle(
+                                style: GoogleFonts.lato(
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w500
+                                    fontWeight: FontWeight.w700
                                 ),)
                             ],
                           ),
@@ -266,9 +267,9 @@ class _SearchPageState extends State<SearchPage> {
                                   icon: Icon(Icons.notifications,
                                   size: 50,)),
                               Text('Bildirim',
-                                style: TextStyle(
+                                style: GoogleFonts.lato(
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w500
+                                    fontWeight: FontWeight.w700
                                 ),)
                             ],
                           ),
@@ -297,9 +298,9 @@ class _SearchPageState extends State<SearchPage> {
                                 icon: Icon(Icons.keyboard_arrow_right,
                                 size: 50,)),
                               Text('Diğer',
-                                style: TextStyle(
+                                style: GoogleFonts.lato(
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w500
+                                    fontWeight: FontWeight.w700
                                 ),)
                             ],
                           ),
