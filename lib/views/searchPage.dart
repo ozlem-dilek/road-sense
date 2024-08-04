@@ -42,7 +42,8 @@ class _SearchPageState extends State<SearchPage> {
                     Text('Arama',
                     style: GoogleFonts.lato(
                       fontSize: 35,
-                      fontWeight: FontWeight.w900
+                      fontWeight: FontWeight.w900,
+                      color: Colors.orange
                     ),
 
                     )
@@ -76,6 +77,7 @@ class _SearchPageState extends State<SearchPage> {
                             hintStyle: GoogleFonts.lato(fontSize: 20),
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.search_outlined,
+                              color: Colors.grey,
                               size: 40,
                               weight: 10,)
                         ),
@@ -91,7 +93,8 @@ class _SearchPageState extends State<SearchPage> {
                     Text('Filtrele',
                     style: GoogleFonts.lato(
                       fontSize: 25,
-                      fontWeight: FontWeight.w700
+                      fontWeight: FontWeight.w700,
+                      color: Colors.orange
                     ),)
                   ],
                 ),
@@ -133,11 +136,13 @@ class _SearchPageState extends State<SearchPage> {
                               }
                             },
                                 icon: Icon(Icons.circle_outlined,
-                              size: 50,)),
+                              size: 50,
+                                color: Colors.grey,)),
                             Text('Çukur',
                             style: GoogleFonts.lato(
                               fontSize: 17,
-                              fontWeight: FontWeight.w700
+                              fontWeight: FontWeight.w700,
+                                color: Colors.grey
                             ),)
                           ],
                         ),
@@ -163,11 +168,13 @@ class _SearchPageState extends State<SearchPage> {
                           children: [
                             IconButton(onPressed: (){},
                                 icon: Icon(Icons.line_axis,
+                                  color: Colors.grey,
                                 size: 50,)),
                             Text('Çatlak',
                               style: GoogleFonts.lato(
                                   fontSize: 17,
-                                  fontWeight: FontWeight.w700
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.grey
                               ),)
                           ],
                         ),
@@ -194,11 +201,13 @@ class _SearchPageState extends State<SearchPage> {
                           children: [
                             IconButton(onPressed: (){},
                                 icon: Icon(Icons.camera_alt,
-                              size: 50,)),
+                              size: 50,
+                                    color: Colors.grey)),
                             Text('Tespit',
                               style: GoogleFonts.lato(
                                   fontSize: 17,
-                                  fontWeight: FontWeight.w700
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.grey
                               ),)
                           ],
                         ),
@@ -234,11 +243,13 @@ class _SearchPageState extends State<SearchPage> {
                             children: [
                               IconButton(onPressed: (){},
                                 icon: Icon(Icons.map_outlined,
+                                  color: Colors.grey,
                                 size: 50,)),
                               Text('Harita',
                                 style: GoogleFonts.lato(
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w700
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey
                                 ),)
                             ],
                           ),
@@ -265,11 +276,13 @@ class _SearchPageState extends State<SearchPage> {
                             children: [
                               IconButton(onPressed: (){},
                                   icon: Icon(Icons.notifications,
-                                  size: 50,)),
+                                  size: 50,
+                                      color: Colors.grey)),
                               Text('Bildirim',
                                 style: GoogleFonts.lato(
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w700
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey
                                 ),)
                             ],
                           ),
@@ -296,11 +309,13 @@ class _SearchPageState extends State<SearchPage> {
                             children: [
                               IconButton(onPressed: (){},
                                 icon: Icon(Icons.keyboard_arrow_right,
+                                  color: Colors.grey,
                                 size: 50,)),
                               Text('Diğer',
                                 style: GoogleFonts.lato(
                                     fontSize: 17,
-                                    fontWeight: FontWeight.w700
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.grey
                                 ),)
                             ],
                           ),
