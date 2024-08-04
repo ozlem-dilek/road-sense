@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:road_damage_detection_app/views/searchPage.dart';
 
+import 'detection.dart';
 import 'homePage.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -167,7 +168,11 @@ class _NotificationPageState extends State<NotificationPage> {
         floatingActionButton: Container(
           width: 65, height: 65,
           child: FloatingActionButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetectionPage()));
+            },
             child: Icon(Icons.add, color: Colors.white, size: 35),
             backgroundColor: Colors.orangeAccent,
             shape: RoundedRectangleBorder(

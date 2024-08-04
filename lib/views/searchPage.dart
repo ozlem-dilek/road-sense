@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'detection.dart';
 import 'homePage.dart';
 import 'notificationPage.dart';
 
@@ -348,7 +349,11 @@ class _SearchPageState extends State<SearchPage> {
         floatingActionButton: Container(
           width: 65, height: 65,
           child: FloatingActionButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetectionPage()));
+            },
             child: Icon(Icons.add, color: Colors.white, size: 35),
             backgroundColor: Colors.orangeAccent,
             shape: RoundedRectangleBorder(

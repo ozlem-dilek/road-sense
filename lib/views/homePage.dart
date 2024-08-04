@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:road_damage_detection_app/views/detection.dart';
 import 'package:road_damage_detection_app/views/searchPage.dart';
 
 import 'notificationPage.dart';
@@ -33,19 +34,6 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Yakındaki Olaylar'),
-                    TextButton(onPressed: (){},
-                        child: Text('Hepsini Gör',
-                          style: TextStyle(
-                              color: Colors.orange),))
-          
-                ],),
-              ),
             Container(
               width: 800,
               child: Card(
@@ -66,10 +54,13 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                          Text('Konuma Göre Ara'),
-                            Icon(Icons.map_outlined)
+                            Text('Yakındaki Olaylar'),
+                            TextButton(onPressed: (){},
+                                child: Text('Hepsini Gör',
+                                  style: TextStyle(
+                                      color: Colors.orange),))
 
-                        ],),
+                          ],),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -84,38 +75,11 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: ElevatedButton(
-                                onPressed: (){},
-                                child: Text('Ara',
-                                style: TextStyle(color: Colors.white)),
-                                style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent)),
-                            ),
-                          ),
-                        ],
-                      )
                     ],
                   ),
                 ),
               ),
             ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Bildirilmiş Hasarlar'),
-                    TextButton(onPressed: (){},
-                        child: Text('Haritayı Görüntüle',
-                          style: TextStyle(
-                              color: Colors.orange),))
-          
-                  ],),
-              ),
               Card(
                 color: Colors.white,
                 child:Column(
@@ -124,25 +88,41 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-                        child: Icon(Icons.camera_alt, size: 40, color: Colors.black,),
+                        padding: const EdgeInsets.fromLTRB(5, 15, 15, 0),
+                        child: IconButton(
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DetectionPage()));
+                          },
+                          icon: Icon(Icons.camera_alt, size: 40, color: Colors.orangeAccent,)),
                       )
                     ],),
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(15, 0, 15, 5),
-                          child: Text('Yol Hasar Dedektörü',
-                          style: TextStyle(
+                          padding: const EdgeInsets.fromLTRB(3, 0, 15, 0),
+                          child: TextButton(
+                            onPressed: (){
+
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => DetectionPage()));
+
+                            },
+                            child: Text('Yol Hasar Dedektörü',
+                              style: TextStyle(
+                                color: Colors.orangeAccent,
                               fontWeight: FontWeight.w700,
                               fontSize: 18,
                           ),),
+              )
                         ),
                       ],
                     ),
                     Row(children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                        padding: const EdgeInsets.fromLTRB(15, 0, 15, 5),
                         child: Text('Yol hasarlarını tespit et ve bildir',
                         style: TextStyle(
                           fontSize: 16,
@@ -174,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-                          child: Icon(Icons.notifications_active, size: 40, color: Colors.black,),
+                          child: Icon(Icons.notifications_active, size: 40, color: Colors.orangeAccent,),
                         )
                       ],),
                     Row(
@@ -183,6 +163,7 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.fromLTRB(15, 0, 15, 5),
                           child: Text('Yakın Çevreye Uyarı Gönder',
                             style: TextStyle(
+                              color: Colors.orangeAccent,
                               fontWeight: FontWeight.w700,
                               fontSize: 18,
                             ),),
@@ -320,7 +301,11 @@ class _HomePageState extends State<HomePage> {
         floatingActionButton: Container(
           width: 65, height: 65,
           child: FloatingActionButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetectionPage()));
+            },
           child: Icon(Icons.add, color: Colors.white, size: 35,),
           backgroundColor: Colors.orangeAccent,
             shape: RoundedRectangleBorder(
