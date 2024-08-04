@@ -6,6 +6,9 @@ import 'dart:convert'; // bu kütüphane json için
 import 'package:http/http.dart' as http;
 import 'package:road_damage_detection_app/views/video_detection.dart';
 
+import 'homePage.dart';
+import 'live_detection.dart';
+
 class DetectionPage extends StatefulWidget {
   const DetectionPage({super.key});
 
@@ -70,8 +73,10 @@ class _DetectionPageState extends State<DetectionPage> {
           backgroundColor: Color.fromRGBO(246, 246, 246, 1),
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
-            },
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()));            },
+
             icon: Icon(Icons.keyboard_arrow_left),
           ),
           title: Text("Yol Hasarı Tespiti"),
@@ -150,9 +155,6 @@ class _DetectionPageState extends State<DetectionPage> {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetectionPage()));
 
                 },
                 icon: Icon(Icons.camera_alt),
@@ -167,7 +169,11 @@ class _DetectionPageState extends State<DetectionPage> {
                 icon: Icon(Icons.video_collection),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LiveDetectionPage()));
+                },
                 icon: Icon(Icons.live_tv_outlined),
                 color: Colors.orangeAccent,
 

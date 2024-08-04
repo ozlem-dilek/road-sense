@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:road_damage_detection_app/views/homePage.dart';
 import 'dart:io';
 import 'detection.dart';
+import 'live_detection.dart';
 
 class VideoDetectionPage extends StatefulWidget {
   @override
@@ -40,7 +42,10 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
           backgroundColor: Color.fromRGBO(246, 246, 246, 1),
           leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()));
             },
             icon: Icon(Icons.keyboard_arrow_left),
           ),
@@ -115,16 +120,20 @@ class _VideoDetectionPageState extends State<VideoDetectionPage> {
               ),
               IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => VideoDetectionPage()),
-                  );
+
                 },
                 icon: Icon(Icons.video_collection),
                 color: Colors.orangeAccent,
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LiveDetectionPage()),
+                  );
+
+                },
                 icon: Icon(Icons.live_tv_outlined),
                 color: Colors.orangeAccent,
 
