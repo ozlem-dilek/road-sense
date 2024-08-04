@@ -1,64 +1,34 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'dart:convert'; // bu kütüphane json için
-import 'package:http/http.dart' as http;
-import 'package:road_damage_detection_app/views/video_detection.dart';
+import 'detection.dart';
 
-class DetectionPage extends StatefulWidget {
-  const DetectionPage({super.key});
-
+class VideoDetectionPage extends StatefulWidget {
   @override
-  State<DetectionPage> createState() => _DetectionPageState();
+  _VideoDetectionPageState createState() => _VideoDetectionPageState();
 }
 
-class _DetectionPageState extends State<DetectionPage> {
-  File? _image;
-  List<dynamic>? _detections;
+class _VideoDetectionPageState extends State<VideoDetectionPage> {
+  File? _video;
   final ImagePicker _picker = ImagePicker();
 
-  Future<void> _takePicture() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
-
-    if (image != null) {
+  Future<void> _pickVideo() async {
+    final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
+    if (video != null) {
       setState(() {
-        _image = File(image.path);
+        _video = File(video.path);
       });
-
-      await _detectObjects(image.path);
-    } else {
-      print('Fotoğraf çekme iptal edildi/başarısız oldu');
+      // Burada video üzerinde işlem yapılabilir (örneğin, video tespiti için Python servis çağrısı)
     }
   }
 
-  Future<void> _pickPicture() async {
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-
-    if (image != null) {
+  Future<void> _recordVideo() async {
+    final XFile? video = await _picker.pickVideo(source: ImageSource.camera);
+    if (video != null) {
       setState(() {
-        _image = File(image.path);
+        _video = File(video.path);
       });
-
-      await _detectObjects(image.path);
-    } else {
-      print('Fotoğraf seçme iptal edildi/başarısız oldu');
-    }
-  }
-
-  Future<void> _detectObjects(String imagePath) async {
-    final url = Uri.parse('http://127.0.0.1:5001/predict/photo');
-    final request = http.MultipartRequest('POST', url)
-      ..files.add(await http.MultipartFile.fromPath('image', imagePath));
-    final response = await request.send();
-
-    if (response.statusCode == 200) {
-      final responseBody = await response.stream.bytesToString();
-      setState(() {
-        _detections = json.decode(responseBody);
-      });
-    } else {
-      print('Error: ${response.reasonPhrase}');
+      // Burada video üzerinde işlem yapılabilir (örneğin, video tespiti için Python servis çağrısı)
     }
   }
 
@@ -88,28 +58,13 @@ class _DetectionPageState extends State<DetectionPage> {
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.75,
-                    child: _image == null
-                        ? Center(child: Text("Fotoğraf Çek veya Galeri'den seç"))
+                    child: _video == null
+                        ? Center(child: Text("Video Çek veya Galeri'den seç"))
                         : Stack(
                       children: [
-                        Image.file(_image!),
-                        if (_detections != null)
-                          ..._detections!.map((detection) {
-                            return Positioned(
-                              left: detection['x1'],
-                              top: detection['y1'],
-                              width: detection['x2'] - detection['x1'],
-                              height: detection['y2'] - detection['y1'],
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.red,
-                                    width: 2,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }).toList(),
+                        // Video widget'ı kullanmanız gerekebilir (örneğin, video oynatıcı)
+                        // Video playback widget is currently placeholder
+                        Center(child: Text("Video Playback Widget Here")),
                       ],
                     ),
                   ),
@@ -119,9 +74,9 @@ class _DetectionPageState extends State<DetectionPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                    onPressed: _takePicture,
+                    onPressed: _recordVideo,
                     child: Text(
-                      'Fotoğraf Çek',
+                      'Video Çek',
                       style: TextStyle(color: Colors.white),
                     ),
                     style: ButtonStyle(
@@ -129,7 +84,7 @@ class _DetectionPageState extends State<DetectionPage> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: _pickPicture,
+                    onPressed: _pickVideo,
                     child: Text(
                       'Galeriden Seç',
                       style: TextStyle(color: Colors.white),
@@ -151,9 +106,9 @@ class _DetectionPageState extends State<DetectionPage> {
               IconButton(
                 onPressed: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DetectionPage()));
-
+                    context,
+                    MaterialPageRoute(builder: (context) => DetectionPage()),
+                  );
                 },
                 icon: Icon(Icons.camera_alt),
                 color: Colors.orangeAccent,
@@ -161,10 +116,12 @@ class _DetectionPageState extends State<DetectionPage> {
               IconButton(
                 onPressed: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => VideoDetectionPage()));
+                    context,
+                    MaterialPageRoute(builder: (context) => VideoDetectionPage()),
+                  );
                 },
                 icon: Icon(Icons.video_collection),
+                color: Colors.orangeAccent,
               ),
               IconButton(
                 onPressed: () {},
