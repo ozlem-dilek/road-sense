@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:road_damage_detection_app/views/searchPage.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'detection.dart';
 import 'homePage.dart';
 
@@ -33,7 +33,7 @@ class _NotificationPageState extends State<NotificationPage> {
         title: Padding(
           padding: const EdgeInsets.fromLTRB(0, 20, 0, 15),
           child: Text('Bildirimler',
-          style: TextStyle(
+          style: GoogleFonts.lato(
             fontSize: 30,
             fontWeight: FontWeight.w700
           ),),
@@ -52,7 +52,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Text('Yeni Bildirimler',
-                    style: TextStyle(
+                    style: GoogleFonts.lato(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                     ),
@@ -93,7 +93,7 @@ class _NotificationPageState extends State<NotificationPage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                       child: Text('Çukur',
-                        style: TextStyle(
+                        style: GoogleFonts.lato(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
                             color: Colors.orangeAccent,
@@ -111,13 +111,13 @@ class _NotificationPageState extends State<NotificationPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(5, 0, 0, 4),
                           child: Text('100 m yakında bildirildi.',
-                          style: TextStyle(
+                          style: GoogleFonts.lato(
                             fontSize: 16,
-                            fontWeight: FontWeight.w500
+                            fontWeight: FontWeight.w800
                           ),),
                         ),
                         Text('5 dakika önce',
-                          style: TextStyle(
+                          style: GoogleFonts.lato(
                               fontSize: 10
                           ),)
                       ],
