@@ -31,59 +31,51 @@ class _DetectionPageState extends State<DetectionPage> {
         body:
           SingleChildScrollView(
             child: Column(
-              children: [
-                Row(),
-                Row()
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:[
+                Row(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height*0.75,
+                  )
+                ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
 
-              ],
+                  children: [
+                    ElevatedButton(onPressed: (){},
+                      child:Text('Fotoğraf Çek',
+                          style: TextStyle(
+                              color: Colors.white),),
+                      style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(Colors.orangeAccent)),),
+                    ElevatedButton(onPressed: (){},
+                      child:Text('Galeriden Seç',
+                          style: TextStyle(
+                              color: Colors.white,)),
+                      style: ButtonStyle
+                          (backgroundColor: WidgetStatePropertyAll(Colors.grey)), )
+
+                  ],
+                ),
+              ]
+
             ),
           ),
-        bottomNavigationBar: Container(
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(3.0),
+          bottomNavigationBar: Container(
+            color: Colors.white,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                IconButton(onPressed: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
-                    icon: Icon(Icons.home_filled, size: 35)),
-                IconButton(onPressed: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SearchPage()));
-                },
-                    icon: Icon(Icons.search, size: 37)),
-                SizedBox(width: 20),
-                IconButton(onPressed: (){
+                IconButton(onPressed: (){}, icon: Icon(Icons.camera_alt), color: Colors.orangeAccent,),
+                IconButton(onPressed: (){}, icon: Icon(Icons.video_collection)),
+                IconButton(onPressed: (){}, icon: Icon(Icons.live_tv_outlined))
 
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NotificationPage()));
-
-                },
-                    icon: Icon(Icons.mode_comment, size: 33)),
-                IconButton(onPressed: (){},
-                    icon: Icon(Icons.account_circle, size: 35))
               ],
-
             ),
           ),
-        ),
-        floatingActionButton: Container(
-          width: 65, height: 65,
-          child: FloatingActionButton(
-            onPressed: (){},
-            child: Icon(Icons.add, color: Colors.white, size: 35,),
-            backgroundColor: Colors.orangeAccent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0),
-            ),),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
