@@ -6,7 +6,6 @@ import io
 
 app = Flask(__name__)
 
-# Yolov8 modelini yükle
 model = torch.hub.load('ultralytics/yolov8', 'custom', path='lib/assets/yolov8_model/best.pt')
 
 @app.route('/predict/video', methods=['POST'])
@@ -26,7 +25,7 @@ def predict_video():
         results = model(frame)
         frames.append(results.render()[0])
 
-    # Video yazma işlemi (geçici bir dosya yolu kullanarak)
+
     output_path = 'output_video.mp4'
     height, width, _ = frames[0].shape
     out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), 20.0, (width, height))

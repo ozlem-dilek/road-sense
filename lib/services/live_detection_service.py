@@ -7,7 +7,7 @@ import base64
 import numpy as np
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
+app.config['***key'] = 'key!'
 socketio = SocketIO(app)
 
 model = torch.hub.load('ultralytics/yolov8', 'custom', path='lib/assets/yolov8_model/best.pt')
@@ -22,12 +22,10 @@ def handle_disconnect():
 
 @socketio.on('video_frame')
 def handle_video_frame(data):
-    # Gelen video karesini çöz
     img_data = base64.b64decode(data['frame'])
     np_arr = np.fromstring(img_data, np.uint8)
     frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
-    # Tespit işlemi
     results = model(frame)
 
     # Tespit sonuçlarını işle
